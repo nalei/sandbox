@@ -16,6 +16,7 @@
     <meta name="viewport" content="width=device-width">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/libs/modernizr-2.5.3.min.js"></script>
 
@@ -44,159 +45,175 @@ src="https://www.facebook.com/tr?id=658373034325310&ev=PageView
 
 <body>
 
-<header class="header">
-    <article class="wrapper">
-        <a href="/" class="logo">
-            robot_calls
-            <span>автоматизация общения <br> с клиентами</span>
-        </a>
-        <div class="header_tel">
-            <a href="tel:+74999384013" data-target-analytic="phone">+7 (499) 938 40 13</a>
+<header class="header transp">
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="nav navbar-left">
+                <a href="/" class="logo nuxt-link-exact-active nuxt-link-active">ROBOT_CALLS</a>
+                <p>автоматизация общения с клиентами</p>
+            </div>
+            <ul class="nav navbar-nav hidden-sm hidden-xs">
+                <li><a href="#" data-scroll-to="slide1" data-target-analytic="menuhow">Как это работает</a></li>
+                <li><a href="#" data-scroll-to="slide2" data-target-analytic="menuexamples">Варианты использования</a></li>
+                <li><a href="#" data-scroll-to="slide3" data-target-analytic="menuprice">Цена</a></li>
+                <li><a href="#" data-scroll-to="slide4" data-target-analytic="menuclients">Клиенты</a></li>
+                <li><a href="#" data-scroll-to="slide5" data-target-analytic="menurequest" onclick="yaCounter48306422.reachGoal('kanrequest'); return true;">Подключение</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="tel:+74999384013" data-target-analytic="phone">+7 (499) 938-40-13</a></li>
+            </ul>
         </div>
-        <nav class="b-menu">
-            <a href="#" class="b-menu__item" data-scroll-to="slide1" data-target-analytic="menuhow">Как это работает</a>
-            <a href="#" class="b-menu__item" data-scroll-to="slide2" data-target-analytic="menuexamples">Варианты использования</a>
-            <a href="#" class="b-menu__item" data-scroll-to="slide3" data-target-analytic="menuprice">Цена</a>
-            <a href="#" class="b-menu__item" data-scroll-to="slide4" data-target-analytic="menuclients">Клиенты</a>
-            <a href="#" class="b-menu__item" data-scroll-to="slide5" data-target-analytic="menurequest" onclick="yaCounter48306422.reachGoal('kanrequest'); return true;">Подключение</a>
-        </nav>
-    </article>
+    </nav>
 </header>
 
-<div class="content">
+<main>
+
     <section class="masthead">
-        <article class="wrapper">
-            <div class="masthead_in">
-                <h1>Робот обзвонит <span>10.000</span> клиентов за <span>1</span> день</h1>
-                <p>задаст голосом ваш вопрос, запишет ответы и подведет итоги опроса_</p>
-                <a href="#" class="btn-blue btn" data-scroll-to="slide5" data-target-analytic="request" onclick="yaCounter48306422.reachGoal('kanrequest'); return true;">заявка на подключение</a>
+        <article class="container">
+            <div class="masthead-title">
+                <div class="row">
+                    <div class="col-md-5 col-md-offset-7">
+                        <h1>Робот обзвонит <span>10.000</span> клиентов за <span>1</span> день</h1>
+                        <p>задаст голосом ваш вопрос, запишет ответы и подведет итоги опроса_</p>
+                        <div class="button-block">
+                            <a href="#" class="btn-blue btn fancybox" data-mode="3" data-fancybox-href="#popup" data-target-analytic="request" onclick="yaCounter48306422.reachGoal('kanrequest'); return true;">заявка на подключение</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-down hidden-xs" data-target-analytic="listdown">
+                <img src="images/icon/scroll.svg" alt="">
             </div>
         </article>
-        <div class="scroll-down" data-target-analytic="listdown">
-            <img src="images/icon/scroll.svg" alt="">
-        </div>
-        <img class="bg" src="images/bg_ken.jpg" alt="">
     </section>
 
-    <section class="about-comp" id="slide1">
-        <article class="wrapper">
-            <h2>Автоматизация общения с клиентами</h2>
-            <div class="about-comp_list">
-                <div class="about-comp-item about-comp-item_first" data-target-analytic="create">
-                    <div class="about-comp-in">
-                        <div class="about-comp_text">
-                            <div class="title">создаем сценарий</div>
-                            <div class="subtext">Робот произнесет текст и отреагирует на ответ клиента</div>
+    <section class="about-comp text-center" id="slide1">
+        <article class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-center">Автоматизация общения с клиентами</h2>
+                    <div class="about-comp_list">
+                        <div class="about-comp-item about-comp-item_first" data-target-analytic="create">
+                            <div class="about-comp-in">
+                                <div class="about-comp_text">
+                                    <div class="title">создаем сценарий</div>
+                                    <div class="subtext">Робот произнесет текст и отреагирует на ответ клиента</div>
+                                </div>
+                                <div class="about-comp_bg">
+                                    <div class="about-comp-item_shadow"></div>
+                                    <div class="about-comp-item_shadow"></div>
+                                    <div class="about-comp-item_shadow"></div>
+                                    <div class="counter">1</div>
+                                    <div class="progres">
+                                        <svg width="150" height="150" viewBox="0 0 150 150" class="hai_progress">
+                                            <circle cx="75" cy="75" r="70" fill="none" stroke="#662eff" stroke-width="1" opacity="0.5"></circle>
+                                            <circle cx="75" cy="75" r="70" fill="none" stroke="#662eff" stroke-width="2" class="hai_progress__value"></circle>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="about-comp_bg">
-                            <div class="about-comp-item_shadow"></div>
-                            <div class="about-comp-item_shadow"></div>
-                            <div class="about-comp-item_shadow"></div>
-                            <div class="counter">1</div>
-                            <div class="progress">
-                                <svg width="150" height="150" viewBox="0 0 150 150" class="hai_progress">
-                                    <circle cx="75" cy="75" r="70" fill="none" stroke="#662eff" stroke-width="1" opacity="0.5"></circle>
-                                    <circle cx="75" cy="75" r="70" fill="none" stroke="#662eff" stroke-width="2" class="hai_progress__value"></circle>
-                                </svg>
+                        <div class="about-comp-item about-comp-item_second" data-target-analytic="start">
+                            <div class="about-comp-in">
+                                <div class="about-comp_text">
+                                    <div class="title">включаем робота</div>
+                                    <div class="subtext">Робот делает звонки параллельно в режиме 24/7 без ограничений</div>
+                                </div>
+                                <div class="about-comp_bg">
+                                    <div class="about-comp-item_shadow"></div>
+                                    <div class="about-comp-item_shadow"></div>
+                                    <div class="about-comp-item_shadow"></div>
+                                    <div class="counter">2</div>
+                                    <div class="progres">
+                                        <svg width="150" height="150" viewBox="0 0 150 150" class="hai_progress">
+                                            <circle cx="75" cy="75" r="70" fill="none" stroke="#662eff" stroke-width="1" opacity="0.5"></circle>
+                                            <circle cx="75" cy="75" r="70" fill="none" stroke="#662eff" stroke-width="2" class="hai_progress__value"></circle>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-comp-item about-comp-item_third" data-target-analytic="listen">
+                            <div class="about-comp-in">
+                                <div class="about-comp_text">
+                                    <div class="title">слушаем клиента</div>
+                                    <div class="subtext">Робот выполняет сценарий в зависимости от ответов клиента</div>
+                                </div>
+                                <div class="about-comp_bg">
+                                    <div class="about-comp-item_shadow"></div>
+                                    <div class="about-comp-item_shadow"></div>
+                                    <div class="about-comp-item_shadow"></div>
+                                    <div class="counter">3</div>
+                                    <div class="progres">
+                                        <svg width="150" height="150" viewBox="0 0 150 150" class="hai_progress">
+                                            <circle cx="75" cy="75" r="70" fill="none" stroke="#662eff" stroke-width="1" opacity="0.5"></circle>
+                                            <circle cx="75" cy="75" r="70" fill="none" stroke="#662eff" stroke-width="2" class="hai_progress__value"></circle>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-comp-item about-comp-item_fourth" data-target-analytic="analysis">
+                            <div class="about-comp-in">
+                                <div class="about-comp_text">
+                                    <div class="title">анализируем речь</div>
+                                    <div class="subtext">Все звонки записываются, переводятся в текст и анализируются</div>
+                                </div>
+                                <div class="about-comp_bg">
+                                    <div class="about-comp-item_shadow"></div>
+                                    <div class="about-comp-item_shadow"></div>
+                                    <div class="about-comp-item_shadow"></div>
+                                    <div class="counter">4</div>
+                                    <div class="progres">
+                                        <svg width="150" height="150" viewBox="0 0 150 150" class="hai_progress">
+                                            <circle cx="75" cy="75" r="70" fill="none" stroke="#662eff" stroke-width="1" opacity="0.5"></circle>
+                                            <circle cx="75" cy="75" r="70" fill="none" stroke="#662eff" stroke-width="2" class="hai_progress__value"></circle>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="about-comp-item about-comp-item_second" data-target-analytic="start">
-                    <div class="about-comp-in">
-                        <div class="about-comp_text">
-                            <div class="title">включаем робота</div>
-                            <div class="subtext">Робот делает звонки параллельно в режиме 24/7 без ограничений</div>
-                        </div>
-                        <div class="about-comp_bg">
-                            <div class="about-comp-item_shadow"></div>
-                            <div class="about-comp-item_shadow"></div>
-                            <div class="about-comp-item_shadow"></div>
-                            <div class="counter">2</div>
-                            <div class="progress">
-                                <svg width="150" height="150" viewBox="0 0 150 150" class="hai_progress">
-                                    <circle cx="75" cy="75" r="70" fill="none" stroke="#662eff" stroke-width="1" opacity="0.5"></circle>
-                                    <circle cx="75" cy="75" r="70" fill="none" stroke="#662eff" stroke-width="2" class="hai_progress__value"></circle>
-                                </svg>
+                    <button class="btn btn-violet js-open-example" data-target-analytic="example">пример</button>
+                    <div class="example-drop">
+                        <i class="close">
+                            <svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-1044.000000, -1450.000000)" fill="#1C0B43">
+                                        <path d="M1051,1455.6 L1056.6,1450 L1058,1451.4 L1052.4,1457 L1058,1462.6 L1056.6,1464 L1051,1458.4 L1045.4,1464 L1044,1462.6 L1049.6,1457 L1044,1451.4 L1045.4,1450 L1051,1455.6 Z"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </i>
+                        <div class="example-text">
+                            <div class="title">пример</div>
+                            <div class="example-text_in">
+                                Я сделал 10 000 звонков за 1 день и задал ваш вопрос <br/>
+                                Мне ответило 6 536 клиентов <br/>
+                                выразили согласие 62% <br/>
+                                ответили отказом 20%<br/>
+                                затруднились ответить 18%_
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="about-comp-item about-comp-item_third" data-target-analytic="listen">
-                    <div class="about-comp-in">
-                        <div class="about-comp_text">
-                            <div class="title">слушаем клиента</div>
-                            <div class="subtext">Робот выполняет сценарий в зависимости от ответов клиента</div>
-                        </div>
-                        <div class="about-comp_bg">
-                            <div class="about-comp-item_shadow"></div>
-                            <div class="about-comp-item_shadow"></div>
-                            <div class="about-comp-item_shadow"></div>
-                            <div class="counter">3</div>
-                            <div class="progress">
-                                <svg width="150" height="150" viewBox="0 0 150 150" class="hai_progress">
-                                    <circle cx="75" cy="75" r="70" fill="none" stroke="#662eff" stroke-width="1" opacity="0.5"></circle>
-                                    <circle cx="75" cy="75" r="70" fill="none" stroke="#662eff" stroke-width="2" class="hai_progress__value"></circle>
-                                </svg>
-                            </div>
+                        <div class="user">
+                            <img src="images/user.png" alt="">
                         </div>
                     </div>
-                </div>
-                <div class="about-comp-item about-comp-item_fourth" data-target-analytic="analysis">
-                    <div class="about-comp-in">
-                        <div class="about-comp_text">
-                            <div class="title">анализируем речь</div>
-                            <div class="subtext">Все звонки записываются, переводятся в текст и анализируются</div>
-                        </div>
-                        <div class="about-comp_bg">
-                            <div class="about-comp-item_shadow"></div>
-                            <div class="about-comp-item_shadow"></div>
-                            <div class="about-comp-item_shadow"></div>
-                            <div class="counter">4</div>
-                            <div class="progress">
-                                <svg width="150" height="150" viewBox="0 0 150 150" class="hai_progress">
-                                    <circle cx="75" cy="75" r="70" fill="none" stroke="#662eff" stroke-width="1" opacity="0.5"></circle>
-                                    <circle cx="75" cy="75" r="70" fill="none" stroke="#662eff" stroke-width="2" class="hai_progress__value"></circle>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="btn btn-violet js-open-example" data-target-analytic="example">пример</button>
-            <div class="example-drop">
-                <i class="close">
-                    <svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                         xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <g transform="translate(-1044.000000, -1450.000000)" fill="#1C0B43">
-                                <path d="M1051,1455.6 L1056.6,1450 L1058,1451.4 L1052.4,1457 L1058,1462.6 L1056.6,1464 L1051,1458.4 L1045.4,1464 L1044,1462.6 L1049.6,1457 L1044,1451.4 L1045.4,1450 L1051,1455.6 Z"></path>
-                            </g>
-                        </g>
-                    </svg>
-                </i>
-                <div class="example-text">
-                    <div class="title">пример</div>
-                    <div class="example-text_in">
-                        Я сделал 10 000 звонков за 1 день и задал ваш вопрос <br/>
-                        Мне ответило 6 536 клиентов <br/>
-                        выразили согласие 62% <br/>
-                        ответили отказом 20%<br/>
-                        затруднились ответить 18%_
-                    </div>
-                </div>
-                <div class="user">
-                    <img src="images/user.png" alt="">
                 </div>
             </div>
         </article>
     </section>
 
     <section class="application-area" id="slide2">
-        <article class="wrapper">
-            <h2>Варианты использования</h2>
-            <div class="application-area-list">
-                <div class="application-area-item" data-target-analytic="robotinfo">
+        <article class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-center">Варианты использования</h2>
+                </div>
+            </div>
+            <div class="application-area-list row">
+                <div class="application-area-item col-md-4" data-target-analytic="robotinfo">
                     <div class="front">
                         <div class="center">
                             <div class="icon">
@@ -218,7 +235,7 @@ src="https://www.facebook.com/tr?id=658373034325310&ev=PageView
                         </ul>
                     </div>
                 </div>
-                <div class="application-area-item" data-target-analytic="robotsale">
+                <div class="application-area-item col-md-4" data-target-analytic="robotsale">
                     <div class="front">
                         <div class="center">
                             <div class="icon">
@@ -240,7 +257,7 @@ src="https://www.facebook.com/tr?id=658373034325310&ev=PageView
                         </ul>
                     </div>
                 </div>
-                <div class="application-area-item" data-target-analytic="robotadmin">
+                <div class="application-area-item col-md-4" data-target-analytic="robotadmin">
                     <div class="front">
                         <div class="center">
                             <div class="icon">
@@ -262,7 +279,7 @@ src="https://www.facebook.com/tr?id=658373034325310&ev=PageView
                         </ul>
                     </div>
                 </div>
-                <div class="application-area-item" data-target-analytic="robotinterview">
+                <div class="application-area-item col-md-4" data-target-analytic="robotinterview">
                     <div class="front">
                         <div class="center">
                             <div class="icon">
@@ -284,7 +301,7 @@ src="https://www.facebook.com/tr?id=658373034325310&ev=PageView
                         </ul>
                     </div>
                 </div>
-                <div class="application-area-item" data-target-analytic="robotconsult">
+                <div class="application-area-item col-md-4" data-target-analytic="robotconsult">
                     <div class="front">
                         <div class="center">
                             <div class="icon">
@@ -311,9 +328,15 @@ src="https://www.facebook.com/tr?id=658373034325310&ev=PageView
     </section>
 
     <section class="subscribe" id="slide3">
-        <article class="wrapper">
-            <p>Один звонок <span class="small">ROBOT_CALLS</span> стоит <span>всего 2 рубля</span></p>
-            <button class="btn btn-blue" data-scroll-to="slide5" data-target-analytic="pricerequest" onclick="yaCounter48306422.reachGoal('kanrequest'); return true;">Заявка на подключение</button>
+        <article class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <p>Один звонок <span class="small">ROBOT_CALLS </span> стоит <span>всего 2 рубля</span></p>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-blue" data-scroll-to="slide5" data-target-analytic="pricerequest" onclick="yaCounter48306422.reachGoal('kanrequest'); return true;">Заявка на подключение</button>
+                </div>
+            </div>
         </article>
     </section>
 
@@ -376,10 +399,14 @@ src="https://www.facebook.com/tr?id=658373034325310&ev=PageView
     </section>
 
     <section class="info-call" id="slide5">
-        <article class="wrapper">
-            <h2>Сколько клиентов вам нужно обзвонить?</h2>
-            <div class="info-call_list">
-                <div class="info-call-item">
+        <article class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-center">Сколько клиентов вам нужно обзвонить?</h2>
+                </div>
+            </div>
+            <div class="info-call_list row">
+                <div class="info-call-item col-md-4">
                     <div class="info-call-item_in">
                         <div class="top">подключение</div>
                         <div class="big">1—10</div>
@@ -388,7 +415,7 @@ src="https://www.facebook.com/tr?id=658373034325310&ev=PageView
 
                     <button class="btn btn-blue fancybox" data-mode="1" data-fancybox-href="#popup" data-target-analytic="first" onclick="yaCounter48306422.reachGoal('kanleed'); return true;">отправить заявку</button>
                 </div>
-                <div class="info-call-item">
+                <div class="info-call-item col-md-4">
                     <div class="info-call-item_in">
                         <div class="small">больше</div>
                         <div class="big">10</div>
@@ -396,7 +423,7 @@ src="https://www.facebook.com/tr?id=658373034325310&ev=PageView
                     </div>
                     <button class="btn btn-blue fancybox" data-mode="2" data-fancybox-href="#popup" data-target-analytic="second" onclick="yaCounter48306422.reachGoal('kanleed'); return true;">отправить заявку</button>
                 </div>
-                <div class="info-call-item">
+                <div class="info-call-item col-md-4">
                     <div class="info-call-item_in">
                         <div class="small">не могу <br/> сказать точно</div>
                     </div>
@@ -406,26 +433,31 @@ src="https://www.facebook.com/tr?id=658373034325310&ev=PageView
         </article>
     </section>
 
-</div>
+</main>
 
 <footer class="footer">
-    <article class="wrapper">
-        <a href="#" class="footer-logo">
-            robot_calls
-            <span>автоматизация общения <br> с клиентами</span>
-        </a>
-        <div class="footer-tel">
-            <a href="tel:+74999384013" data-target-analytic="phone">+7 (499) 938 40 13</a>
-        </div>
-        <div class="footer_mess">
-            <a href="mailto:sales@voximplant.com" data-target-analytic="mail">sales@voximplant.com</a>
-        </div>
+    <article class="container">
+        <div class="row">
 
-        <div class="footer_nav">
-            <ul>
-                <li><a href="https://voximplant.com/legal/privacy" target="_blank">Пользовательское соглашение</a></li>
-                <li><a href="https://voximplant.com/legal/tos" target="_blank">Политика конфиденциальности</a></li>
-            </ul>
+            <div class="col-md-6">
+                <a href="/" class="footer-logo">robot_calls   <span>автоматизация общения <br> с клиентами</span></a>
+            </div>
+
+            <div class="col-md-6">
+                <div class="footer-tel">
+                    <a href="tel:+74956646318" data-target-analytic="phone">+7 495 664-63-18</a>
+                </div>
+                <div class="footer_mess">
+                    <a href="mailto:info@robotcalls.ru" data-target-analytic="mail">info@robotcalls.ru</a>
+                </div>
+                <div class="footer_nav">
+                    <ul>
+                        <li><a href="https://voximplant.com/legal/privacy" target="_blank">Пользовательское соглашение</a></li>
+                        <li><a href="https://voximplant.com/legal/tos" target="_blank">Политика конфиденциальности</a></li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
         <div class="copyright">© 2018 Powered by Voximplant. All rights reserved.</div>
     </article>
