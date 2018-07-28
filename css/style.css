@@ -1075,108 +1075,7 @@ The `sprites` mixin generates identical output to the CSS template
     outline: none;
 }
 
-html {
-    word-spacing: 1px;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: "Roboto Mono", "Roboto", sans-serif;
-    font-weight: 500;
-}
-
-h1 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 40px;
-}
-
-h2 {
-    font: bold 24px/1.2 "Roboto", sans-serif;
-    color: #1c0b43;
-    margin: auto;
-    margin-bottom: 70px;
-}
-
-.btn {
-    padding: 0;
-    margin: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: inline-block;
-    text-transform: uppercase;
-}
-
-.btn:focus, .btn:active:focus {
-    outline: none;
-    color: inherit;
-}
-
-.btn-blue {
-    background: #662eff;
-    padding: 17px 26px 19px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 1;
-    letter-spacing: 0.3px;
-    text-align: center;
-    color: #ffffff;
-    border: 1px solid #662eff;
-    -webkit-transition: all 0.15s ease-in-out;
-    transition: all 0.15s ease-in-out;
-}
-
-.btn-blue:hover {
-    background: #d2c2ff;
-    color: #150633;
-    border: 1px solid #d2c2ff;
-}
-
-/* .btn-blue:hover {
-    background: none;
-    color: #fff;
-} */
-
-.btn-violet {
-    font: 500 12px/1.17 "Roboto Mono", "Roboto", sans-serif;
-    padding: 16px 49px 18px 51px;
-    border-radius: 4px;
-    border: solid 1px #662eff;
-    letter-spacing: 0.3px;
-    text-align: center;
-    color: #662eff;
-    -webkit-transition: all 0.15s ease-in-out;
-    transition: all 0.15s ease-in-out;
-}
-
-.btn-violet:hover {
-    background: #662eff;
-    color: #fff;
-}
-
-.btn-white {
-    font: 500 12px/1.17 "Roboto Mono", "Roboto", sans-serif;
-    background: #fff;
-    letter-spacing: 0.3px;
-    text-align: center;
-    color: #662eff;
-    padding: 15px 27px 17px 30px;
-    border-radius: 4px;
-    border: 1px solid #fff;
-    -webkit-transition: all 0.15s ease-in-out;
-    transition: all 0.15s ease-in-out;
-}
-
-.btn-white:hover {
-    background: none;
-    color: #fff;
-}
 
 /*! fancyBox v2.1.5 fancyapps.com | fancyapps.com/fancybox/#license */
 
@@ -1617,26 +1516,161 @@ h2 {
     color: #662eff;
 }
 
+
+html {
+    word-spacing: 1px;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto Mono", "Roboto", sans-serif;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+h2 {
+    font: bold 24px/1.2 "Roboto", sans-serif;
+    color: #1c0b43;
+    margin: auto;
+    margin-bottom: 70px;
+}
+
+@media (min-width: 768px) {
+    h2 {
+        font-size: 40px;
+    }
+    h2:after {
+        width: 21px;
+        height: 2px;
+        border-bottom: solid 2px #1c0b43;
+        content: '';
+        margin: 0 0 0 5px;
+        display: inline-block;
+    }
+}
+
+.btn {
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.btn:focus, .btn:active:focus {
+    outline: none;
+    color: inherit;
+}
+
+.btn-blue {
+    background: #662eff;
+    padding: 17px 26px 19px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.3px;
+    text-align: center;
+    color: #ffffff;
+    border: 1px solid #662eff;
+    -webkit-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+}
+
+.btn-blue:hover {
+    background: #d2c2ff;
+    color: #150633;
+    border: 1px solid #d2c2ff;
+}
+
+/* .btn-blue:hover {
+    background: none;
+    color: #fff;
+} */
+
+.btn-violet {
+    font: 500 12px/1.17 "Roboto Mono", "Roboto", sans-serif;
+    padding: 16px 49px 18px 51px;
+    border-radius: 4px;
+    border: solid 1px #662eff;
+    letter-spacing: 0.3px;
+    text-align: center;
+    color: #662eff;
+    -webkit-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+}
+
+.btn-violet:hover {
+    background: #662eff;
+    color: #fff;
+}
+
+.btn-white {
+    font: 500 12px/1.17 "Roboto Mono", "Roboto", sans-serif;
+    background: #fff;
+    letter-spacing: 0.3px;
+    text-align: center;
+    color: #662eff;
+    padding: 15px 27px 17px 30px;
+    border-radius: 4px;
+    border: 1px solid #fff;
+    -webkit-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+}
+
+.btn-white:hover {
+    background: none;
+    color: #fff;
+}
+
 /* Header */
 
 .header {
     width: 100%;
 }
-.header.transp {
-    position: absolute;
-    top: 30px;
-    z-index: 1000;
-}
+/* Bootstrap overrides */
 .header.transp .navbar-inverse {
-    background-color: transparent;
+    background-color: #1d0c44;
+    border: none;
     border-color: transparent;
-    -webkit-transition: background-color 0.3s;
-    transition: background-color 0.3s;
+    margin-bottom: 0;
+
 }
+.header.transp .navbar-collapse {
+    border-top: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.navbar-inverse .navbar-toggle {
+    border: none;
+    border-color: transparent;
+    position: absolute;
+    right: 15px;
+    top: 8px;
+    margin: 0;
+}
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background: transparent;
+}
+.header.transp .navbar-brand {
+    height: 75px;
+}
+
 .header.transp .navbar-inverse .navbar-nav > li > a {
     color: #fff;
 }
-.navbar-left a.logo {
+.navbar-brand a.logo {
     display: block;
     color: #fff;
     font-size: 16px;
@@ -1644,10 +1678,10 @@ h2 {
     letter-spacing: .15em;
     margin-bottom: 10px;
 }
-.navbar-left a.logo:hover {
+.navbar-brand a.logo:hover {
     text-decoration: none;
 }
-.navbar-left p {
+.navbar-brand p {
     font-size: 12px;
     color: #8b61ff;
     margin-bottom: 5px;
@@ -1659,20 +1693,42 @@ h2 {
     padding: 0 15px;
 }
 
+
 @media (min-width: 768px) {
-    .navbar-left {
+    .header.transp {
+        position: absolute;
+        top: 30px;
+    }
+    .navbar-brand {
         padding: 15px 15px;
     }
-    .navbar-left p {
+    .navbar-brand p {
         max-width: 165px;
     }
     .navbar-nav > li > a {
         font-size: 14px;
+        
     }
     .navbar-right > li > a {
         font-size: 16px;
         padding-top: 15px;
         padding-bottom: 15px;
+    }
+    .header.transp .navbar-collapse {
+        float: left;
+    }
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+    .navbar-nav > li > a {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 12px;
+    }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+    .navbar-right > li > a {
+        padding-top: 0;
+        margin-right: 17px;
     }
 }
 
@@ -1680,6 +1736,7 @@ h2 {
 .masthead {
     position: relative;
     background: url(../images/bg_ken.jpg) center 98px no-repeat, #1d0c44;
+    margin-top: -1px;
 }
 .masthead .bg {
     position: absolute;
@@ -1688,7 +1745,7 @@ h2 {
     transform: translateX(-50%);
 }
 .masthead .masthead-title {
-    padding-top: 173px;
+    padding-top: 155px;
     padding-bottom: 20px;
     color: #fff;
 }
@@ -1716,17 +1773,6 @@ h2 {
 }
 
 @media (min-width: 768px) {
-    h2 {
-        font-size: 40px;
-    }
-    h2:after {
-        width: 21px;
-        height: 2px;
-        border-bottom: solid 2px #1c0b43;
-        content: '';
-        margin: 0 0 0 5px;
-        display: inline-block;
-    }
     .masthead {
         height: 768px;
     }
@@ -1734,7 +1780,7 @@ h2 {
         padding-top: 197px;
     }
     .masthead .masthead-title h1 {
-            font-size: 46px;
+            font-size: 40px;
             font-weight: 700;
             margin-bottom: 48px;
     }
@@ -1746,6 +1792,12 @@ h2 {
     }
     .about-comp .container {
         width: 80%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .masthead .masthead-title h1 {
+        font-size: 46px;
     }
 }
 
