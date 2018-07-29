@@ -259,6 +259,23 @@ function animBubl() {
     //}, 200)
   }
 
+  function shiftList(i) {
+    switch (i) {
+    case 0:
+      $('.about-comp_list').css('left', 0);
+      break;
+    case 1:
+      $('.about-comp_list').css('left', -250);
+      break;
+    case 2:
+      $('.about-comp_list').css('left', -500);
+      break;
+    case 3:
+      $('.about-comp_list').css('left', -750);
+      break;
+    }
+  }
+
   //var timer;
   //function changeSubText(arr, index) {
   //  $.each(subText, function (i, el) {
@@ -276,6 +293,7 @@ function animBubl() {
     var i = ind+1 > $('.about-comp-item').length-1 ? 0 :ind +1;
     autoChangeIndervel = setInterval(function () {
       changeCircle(i);
+      shiftList(i);
       i = i+1 > $('.about-comp-item').length-1 ? 0 : i+1
     },timeAnim+200)
   }
@@ -285,6 +303,7 @@ function animBubl() {
     changeCircle($thIndex);
     clearInterval(autoChangeIndervel);
     autoChange($thIndex);
+    shiftList($thIndex);
   });
 
 
@@ -294,19 +313,19 @@ function animBubl() {
 }
 
 function gaEvent(action){
+  // console.log(action);
+  if (typeof gtag == 'function') {
+    switch (action) {
+    default:
     // console.log(action);
-    if (typeof gtag == 'function') {
-        switch (action) {
-            default:
-              // console.log(action);
-                gtag('event', 'click', {
-                    'event_category': 'user',
-                    'event_label': action
-                });
-                // ga('send', 'event', 'user', 'click', action);
-                break;
-        }
+      gtag('event', 'click', {
+        'event_category': 'user',
+        'event_label': action
+      });
+      // ga('send', 'event', 'user', 'click', action);
+      break;
     }
+  }
 }
 function _initAnalitics(){
     $('body').on('click', '[data-target-analytic]', function(e) {
