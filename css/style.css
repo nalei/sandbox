@@ -1167,8 +1167,8 @@ The `sprites` mixin generates identical output to the CSS template
 
 .fancybox-close {
     position: absolute;
-    top: 65px;
-    right: 60px;
+    top: 30px;
+    right: 30px;
     width: 11px;
     height: 11px;
     background: none no-repeat;
@@ -2229,6 +2229,11 @@ h2 {
         text-align: right;
     }
 }
+@media (min-width: 768px) and (max-width: 992px) {
+    .subscribe p {
+        text-align: center;
+    }
+}
 
 /* Bottom carousel */
 .bottom-carousel {
@@ -2238,66 +2243,73 @@ h2 {
     margin: 0 auto;
     position: relative;
 }
-
 .bottom-carousel .slick-slide {
     height: 419px;
     position: relative;
+    z-index: 9999;
 }
-
 .bottom-carousel .slick-center {
+    z-index: 0;
     padding: 0;
 }
-
+.bottom-carousel .slick-center  + .slick-slide .product-small {
+    left: 85%
+}
+.bottom-carousel .slick-active + .slick-slide + .slick-slide .product-small {
+    display: none;
+}
 .bottom-carousel .slick-center .product-small {
     background: #eef1f6;
-    width: 417px;
-    height: 417px;
+    border: solid 1px #eef1f6;
+    width: 320px;
+    height: 320px;
+    top: 50%;
+    left: 50%;
 }
-
+/* .bottom-carousel .slick-center .product-small::before {
+	content: "";
+	display: block;
+	padding-top: 100%;
+} */
 .bottom-carousel .slick-center .product-small_in {
     opacity: 1;
     visibility: visible;
     -webkit-transition: all 0.5s ease .3s;
     transition: all 0.5s ease .3s;
 }
-
 .bottom-carousel .slick-center .logo-big {
-    left: 10%;
     opacity: 1;
     visibility: visible;
     -webkit-transition: all 0.3s ease 0.2s;
     transition: all 0.3s ease 0.2s;
 }
-
 .bottom-carousel .slick-center .logo-big img {
+    width: 138px;
     -webkit-filter: none;
     filter: none;
 }
-
 .bottom-carousel .slick-center .logo-product {
     -webkit-transition: all 0.3s ease 0.2s;
     transition: all 0.3s ease 0.2s;
     opacity: 0;
     visibility: hidden;
 }
-
 .product-small {
+    top: 30%;
+    left: 15%;
     position: absolute;
     cursor: pointer;
-    top: 50%;
-    left: 50%;
     display: inline-block;
     border-radius: 100%;
     width: 150px;
     height: 150px;
-    border: solid 1px #eef1f6;
+    border: solid 1px #cccfd9;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-
 .logo-product {
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -2308,52 +2320,82 @@ h2 {
     opacity: 1;
     visibility: visible;
 }
-
 .logo-product img {
     display: block;
 }
-
 .logo-big {
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     opacity: 0;
     visibility: hidden;
 }
-
 .logo-big img {
     display: block;
 }
-
 .product-small_in {
-    font: 24px "Roboto", sans-serif;
+    font: 18px "Roboto", sans-serif;
     letter-spacing: 0.3px;
-    text-align: left;
+    text-align: center;
     color: #2e1850;
     position: absolute;
     opacity: 0;
     visibility: hidden;
-    top: 50%;
-    left: 60%;
-    right: -20%;
+    top: 65%;
+    left: 10%;
+    right: 10%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     -webkit-transition: all 0s ease 0s;
     transition: all 0s ease 0s;
 }
-
 .product-small_in .title {
     font: 500 16px/1.13 "Roboto Mono", "Roboto", sans-serif;
     letter-spacing: 0.4px;
-    text-align: left;
+    text-align: center;
     left: 50%;
     color: #662eff;
     margin: 0 0 25px;
 }
+@media (min-width: 321px) {
+    .bottom-carousel .slick-center .product-small {
+        width: 375px;
+        height: 375px;
+    }
+}
+@media (min-width: 768px) {
+    .logo-big {
+        top: 50%;
+    }
+    .bottom-carousel .slick-center .logo-big {
+        left: 10%;
+    }
+    .bottom-carousel .slick-center .logo-big img {
+        width: auto;
+    }
+    .product-small {
+        top:50%;
+        left: 50%;
+    }
+    .bottom-carousel .slick-center + .slick-slide .product-small {
+        left: 50%;
+    }
+    .product-small_in {
+        font-size: 22px;
+        text-align: left;
+        top: 50%;
+        left: 60%;
+        right: -22%;
+    }
+    .product-small_in .title {
+        text-align: left;
+    }
+}
+
 
 /* Info call */
 .info-call {
@@ -2424,6 +2466,8 @@ h2 {
 .info-call-item:last-of-type .info-call-item_in {
   padding-top: 70px;
 }
+
+/* Example drop */
 .example-drop {
     display: none;
     padding: 0 0 40px 0;
@@ -2439,21 +2483,22 @@ h2 {
     position: absolute;
     cursor: pointer;
     top: 5px;
-    right: 50%;
-    margin-right: -335px;
+    right: 58px;
     z-index: 10;
+    opacity: 1;
 }
 .example-drop .close:hover path {
     fill: #8b61ff;
 }
 .example-text {
     box-sizing: border-box;
-    padding: 17px 30px 12px 68px;
+    padding: 30px 30px 12px 68px;
     text-align: left;
     position: relative;
-    width: 723px;
+    max-width: 723px;
     height: 286px;
-    background: url(../images/icon/example.svg) no-repeat;
+    background: url(../images/icon/example.svg) center no-repeat;
+    background-size: cover;
     margin: 0 auto;
     font-family: "Roboto Mono", "Roboto", sans-serif;
 }
@@ -2473,6 +2518,24 @@ h2 {
     letter-spacing: 0.4px;
     color: #1c0b43;
 }
+@media (min-width: 768px) {
+    .example-text {
+        padding: 17px 30px 12px 68px;
+    }
+    .example-drop .user {
+        right: 30px;
+    }
+}
+@media (min-width: 1200px) {
+    .example-drop .close {
+        right: 50%;
+        margin-right: -335px;
+    }
+    .example-drop .user {
+        right: 140px;
+    }
+}
+/* ?? */
 .masthead2 .bg {
     bottom: auto;
     top: 50%;
@@ -2512,17 +2575,16 @@ h2 {
     display: block;
 }
 
+/* Popup */
 .popup {
     font: 14px/1.43 "Roboto Mono", "Roboto", sans-serif;
     background: #662eff;
-    width: 604px;
     display: none;
-    padding: 60px 60px 63px;
+    padding: 30px;
     box-sizing: border-box;
     text-align: left;
     color: #ffffff;
 }
-
 .popup .title {
     font: bold 24px/1 "Roboto", sans-serif;
     text-align: left;
@@ -2530,7 +2592,6 @@ h2 {
     margin: 0 0 67px;
     padding: 0 100px 0 0;
 }
-
 .popup label {
     font-size: 16px;
     font-weight: 500;
@@ -2544,7 +2605,6 @@ h2 {
     padding: 0 0 16px;
     left: 0;
 }
-
 .popup label.up {
     font-size: 12px;
     font-weight: 500;
@@ -2554,7 +2614,6 @@ h2 {
     text-align: left;
     color: #ffffff;
 }
-
 .popup input {
     font: 500 16px/1 "Roboto Mono", "Roboto", sans-serif;
     border: none;
@@ -2567,23 +2626,18 @@ h2 {
     color: #ffffff;
     padding: 0 0 16px;
 }
-
 .popup input::-webkit-input-placeholder {
     color: #ffffff;
 }
-
 .popup input::-moz-placeholder {
     color: #ffffff;
 }
-
 .popup input:-ms-input-placeholder {
     color: #ffffff;
 }
-
 .popup input:-moz-placeholder {
     color: #ffffff;
 }
-
 .popup input.done + label,
 .popup input:focus + label {
     font-size: 12px;
@@ -2594,12 +2648,10 @@ h2 {
     text-align: left;
     color: #ffffff;
 }
-
 .popup .form-item {
     margin: 0 0 61px;
     position: relative;
 }
-
 .popup .done label,
 .popup .error label {
     font-size: 12px;
@@ -2610,15 +2662,12 @@ h2 {
     text-align: left;
     color: #ffffff;
 }
-
 .popup .error .error-text {
     display: block;
 }
-
 .popup p {
     margin: 0 0 29px;
 }
-
 .popup .error-text {
     font: 12px/1 "Roboto", sans-serif;
     position: absolute;
@@ -2629,9 +2678,18 @@ h2 {
     text-align: left;
     color: #ffffff;
 }
+@media (min-width: 768px) {
+    .popup {
+        width: 604px;
+    }
+    .fancybox-close {
+        top: 65px;
+        right: 60px;
+    }
+}
+
 
 /* Footer */
-
 .footer {
     position: relative;
     padding: 52px 0 72px;
@@ -2681,13 +2739,7 @@ h2 {
 .footer .footer_mess a:hover {
     color: #9ba9bb;
 }
-.footer_nav {
-    float: right;
-    clear: right;
-}
-.footer_nav li {
-    float: left;
-}
+
 .footer_nav a {
     font-size: 12px;
     font-weight: 500;
@@ -2700,7 +2752,7 @@ h2 {
 }
 .copyright {
     position: absolute;
-    font-size: 12px;
+    font-size: 10px;
     color: #9ca8ba;
     bottom: 10px;
 }
@@ -2715,17 +2767,29 @@ h2 {
     .footer_nav a {
         margin-left: 20px;
     }
+    .footer_nav {
+        float: right;
+        clear: right;
+    }
     .copyright {
+        font-size: 12px;
         bottom: 50px;
+    }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+    .footer_nav li {
+        clear: both;
+    }
+}
+@media (min-width: 992px) {
+    .footer_nav li {
+        float: left;
     }
 }
 
 @media screen and (max-width: 1366px) {
     .application-area-item li {
         font-size: 12px;
-    }
-    .application-area-item .back {
-        padding-right: 20px;
     }
 }
 .js-feedback-content {

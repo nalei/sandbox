@@ -172,7 +172,7 @@ function initSlick() {
     arrows: false,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     centerMode: true,
     focusOnSelect: true,
     centerPadding: '33%'
@@ -181,11 +181,11 @@ function initSlick() {
 
 function toggleExample() {
   $('.js-open-example').on('click', function () {
-    $(this).hide().next().addClass('show').fadeIn(400)
+    $(this).hide().next().fadeIn(400).addClass('show')
   });
 
   $('.example-drop .close').on('click', function () {
-    $('.example-drop').removeClass('show').hide().prev().fadeIn()
+    $('.example-drop').removeClass('show').hide().prev().fadeIn();
   })
 }
 
