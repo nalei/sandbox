@@ -162,8 +162,6 @@ function toggleApplication() {
     }
 
   })
-
-
 }
 
 function initSlick() {
@@ -354,6 +352,13 @@ function scrollToSlide(to){
     $('body,html').animate({ scrollTop: _top }, 400);
 }
 
+function toggleMenu() {
+  $('[data-toggle="collapse"]').on('click', function() {
+    $(this).toggleClass('collapse');
+    $('#navbar').toggleClass('collapsed');
+  });
+}
+
 $(document).ready(function () {
   $("body").children().each(function() {
     $(this).html($(this).html().replace(/&#8232;/g," "));
@@ -367,6 +372,7 @@ $(document).ready(function () {
   toggleApplication();
   initValidete();
   initMask();
+  toggleMenu();
 
     _initAnalitics();
 
