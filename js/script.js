@@ -1,5 +1,5 @@
 function initMask() {
-  // $('.tel').mask("9 (999) 999 99 99");
+  $('.tel').mask("9 (999) 999 99 99");
 }
 
 function initValidete() {
