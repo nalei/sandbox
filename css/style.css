@@ -2552,7 +2552,6 @@ h2 {
 .example-drop {
     display: none;
     padding: 0 0 40px 0;
-    overflow: hidden;
     position: relative;
 }
 .example-drop .user {
@@ -2598,6 +2597,12 @@ h2 {
     line-height: 1.7;
     letter-spacing: 0.4px;
     color: #1c0b43;
+}
+@media (max-width: 320px) {
+    .example-drop .user {
+        bottom: -30px;
+        right: 37px;
+    }
 }
 @media (min-width: 768px) {
     .example-text {
