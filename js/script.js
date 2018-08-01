@@ -274,14 +274,6 @@ function initFancy() {
   })
 }
 
-function initSwipe() {
-
-  $('#swipeElenent').hammer().bind("panleft panright tap press", function(ev) {
-    swipeElenent.textContent = ev.type +" gesture detected.";
-  });
-
-}
-
 function animBubl() {
   var defaulActive = 0;
   var autoChangeIndervel;
@@ -339,15 +331,28 @@ function animBubl() {
     },timeAnim+200)
   }
 
-  $('.about-comp-item').hammer().bind("panleft panright", function(ev) {
+  $('.about-comp-item').hammer().bind("panleft panright tap press", function(ev) {
     var $thIndex = $(this).index();
-    if (ev.type == 'panleft') {
-      changeCircle($thIndex + 1);
-      shiftList($thIndex + 1);
-    }
-    if (ev.type == 'panright') {
-      changeCircle($thIndex - 1);
-      shiftList($thIndex - 1);
+    switch (ev.type) {
+      case 'panleft': {
+        $thIndex = $thIndex+1 > $('.about-comp-item').length-1 ? 0 : $thIndex+1;
+        changeCircle($thIndex);
+        shiftList($thIndex);
+        break;
+      }
+      case 'panright': {
+        $thIndex = $thIndex-1 < 0 ? $('.about-comp-item').length-1 : $thIndex-1;
+        changeCircle($thIndex);
+        shiftList($thIndex);
+        break;
+      }
+      case 'tap': {
+        changeCircle($thIndex);
+        clearInterval(autoChangeIndervel);
+        autoChange($thIndex);
+        shiftList($thIndex);
+        break;
+      }
     }
   });
 
@@ -358,14 +363,6 @@ function animBubl() {
   //   autoChange($thIndex);
   //   shiftList($thIndex);
   // });
-
-  $('.about-comp-item').hammer().bind("tap press", function(ev) {
-    var $thIndex = $(this).index();
-    changeCircle($thIndex);
-    clearInterval(autoChangeIndervel);
-    autoChange($thIndex);
-    shiftList($thIndex);
-  });
 
   //changeSubText(subText[defaulActive], defaulActive);
   changeCircle(defaulActive);
@@ -435,7 +432,6 @@ $(document).ready(function () {
   initValidete();
   initMask();
   toggleMenu();
-  initSwipe();
 
     _initAnalitics();
 

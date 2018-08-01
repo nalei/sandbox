@@ -1878,10 +1878,6 @@ h2 {
     max-width: 1366px;
 }
 @media (max-width: 768px) {
-    .about-comp .container {
-        overflow: hidden;
-        padding: 65px;
-    }
     .about-comp .wrapper {
         overflow: hidden;
         width: 375px;
@@ -1894,10 +1890,6 @@ h2 {
     }
 }
 @media (max-width: 320px) {
-    .about-comp .container {
-        overflow: hidden;
-        padding: 37px;
-    }
     .about-comp .wrapper {
         overflow: hidden;
         width: 320px;
@@ -2918,11 +2910,4 @@ h2 {
     color: #8b61ff;
 }
 
-.swipeElement  {
-    background: silver;
-    height: 300px;
-    text-align: center;
-    font: 30px/300px Helvetica, Arial, sans-serif;
-  }
-  
 
