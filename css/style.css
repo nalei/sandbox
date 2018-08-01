@@ -1876,17 +1876,24 @@ h2 {
 .about-comp .wrapper {
     margin: 0 auto;
     max-width: 1366px;
-    padding: 70px;
 }
 @media (max-width: 768px) {
     .about-comp .wrapper {
         overflow: hidden;
         width: 375px;
+        padding: 65px;
     }
     .about-comp_list {
         width: 983px;
         position: relative;
         left: 0;
+    }
+}
+@media (max-width: 320px) {
+    .about-comp .wrapper {
+        overflow: hidden;
+        width: 320px;
+        padding: 37px;
     }
 }
 .about-comp-item {
@@ -2743,6 +2750,11 @@ h2 {
     .fancybox-close {
         top: 29px;
         right: 33px;
+    }
+}
+@media (max-width: 320px) {
+    .popup {
+        padding: 25px;
     }
 }
 

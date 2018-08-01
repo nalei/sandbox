@@ -263,13 +263,13 @@ function animBubl() {
       $('.about-comp_list').css('left', 0);
       break;
     case 1:
-      $('.about-comp_list').css('left', -250);
+      $('.about-comp_list').css('left', '-100%');
       break;
     case 2:
-      $('.about-comp_list').css('left', -500);
+      $('.about-comp_list').css('left', '-200%');
       break;
     case 3:
-      $('.about-comp_list').css('left', -750);
+      $('.about-comp_list').css('left', '-300%');
       break;
     }
   }
