@@ -1878,6 +1878,10 @@ h2 {
     max-width: 1366px;
 }
 @media (max-width: 768px) {
+    .about-comp .container {
+        overflow: hidden;
+        padding: 65px;
+    }
     .about-comp .wrapper {
         overflow: hidden;
         width: 375px;
@@ -1890,6 +1894,10 @@ h2 {
     }
 }
 @media (max-width: 320px) {
+    .about-comp .container {
+        overflow: hidden;
+        padding: 37px;
+    }
     .about-comp .wrapper {
         overflow: hidden;
         width: 320px;
@@ -2241,23 +2249,33 @@ h2 {
     padding: 34px 20px 38px 20px;
     z-index: 5;
 }
-@media (min-width: 768px) {
-    .application-area-item .front {
-        padding: 34px 90px 38px 40px;;
-    }
-}
 .application-area-item .back {
     background: #1c0b43;
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
     box-shadow: 0 24px 20px 0 rgba(28, 11, 67, 0.3);
-    padding: 40px 30px 30px 20px;
+    padding: 40px 30px 30px 30px;
 }
-@media (min-width: 768px) {
+@media (max-width: 320px) {
     .application-area-item .back {
-        padding: 34px 40px 38px 40px
+        padding: 40px 15px 30px 15px;
+    }
+    .application-area-item .dots {
+        right: 15px;
     }
 }
+@media (min-width: 768px) {
+    .application-area-item .dots {
+        right: 20px;
+    }
+    .application-area-item .front {
+        padding: 34px 90px 38px 40px;;
+    }
+    .application-area-item .back {
+        padding: 34px 40px 38px 40px;
+    }
+}
+
 .application-area-item .back p {
     font-size: 24px;
     font-weight: bold;
@@ -2425,6 +2443,12 @@ h2 {
     left: 50%;
     color: #662eff;
     margin: 0 0 25px;
+}
+@media (max-width: 320px) {
+    .product-small {
+        width: 105px;
+        height: 105px;
+    }
 }
 @media (min-width: 768px) {
     .bottom-carousel .slick-center .product-small {
@@ -2893,3 +2917,12 @@ h2 {
 .b-menu__item:hover {
     color: #8b61ff;
 }
+
+.swipeElement  {
+    background: silver;
+    height: 300px;
+    text-align: center;
+    font: 30px/300px Helvetica, Arial, sans-serif;
+  }
+  
+

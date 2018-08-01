@@ -1,3 +1,38 @@
+(function(factory) {
+  if (typeof define === 'function' && define.amd) {
+      define(['jquery', 'hammerjs'], factory);
+  } else if (typeof exports === 'object') {
+      factory(require('jquery'), require('hammerjs'));
+  } else {
+      factory(jQuery, Hammer);
+  }
+}(function($, Hammer) {
+  function hammerify(el, options) {
+      var $el = $(el);
+      if(!$el.data("hammer")) {
+          $el.data("hammer", new Hammer($el[0], options));
+      }
+  }
+
+  $.fn.hammer = function(options) {
+      return this.each(function() {
+          hammerify(this, options);
+      });
+  };
+
+  // extend the emit method to also trigger jQuery events
+  Hammer.Manager.prototype.emit = (function(originalEmit) {
+      return function(type, data) {
+          originalEmit.call(this, type, data);
+          $(this.element).trigger({
+              type: type,
+              gesture: data
+          });
+      };
+  })(Hammer.Manager.prototype.emit);
+}));
+
+
 function initMask() {
   $('.tel').mask("9 (999) 999 99 99");
 }
@@ -239,6 +274,14 @@ function initFancy() {
   })
 }
 
+function initSwipe() {
+
+  $('#swipeElenent').hammer().bind("panleft panright tap press", function(ev) {
+    swipeElenent.textContent = ev.type +" gesture detected.";
+  });
+
+}
+
 function animBubl() {
   var defaulActive = 0;
   var autoChangeIndervel;
@@ -296,14 +339,33 @@ function animBubl() {
     },timeAnim+200)
   }
 
-  $('.about-comp-item').on('click', function () {
+  $('.about-comp-item').hammer().bind("panleft panright", function(ev) {
+    var $thIndex = $(this).index();
+    if (ev.type == 'panleft') {
+      changeCircle($thIndex + 1);
+      shiftList($thIndex + 1);
+    }
+    if (ev.type == 'panright') {
+      changeCircle($thIndex - 1);
+      shiftList($thIndex - 1);
+    }
+  });
+
+  // $('.about-comp-item').on('click', function () {
+  //   var $thIndex = $(this).index();
+  //   changeCircle($thIndex);
+  //   clearInterval(autoChangeIndervel);
+  //   autoChange($thIndex);
+  //   shiftList($thIndex);
+  // });
+
+  $('.about-comp-item').hammer().bind("tap press", function(ev) {
     var $thIndex = $(this).index();
     changeCircle($thIndex);
     clearInterval(autoChangeIndervel);
     autoChange($thIndex);
     shiftList($thIndex);
   });
-
 
   //changeSubText(subText[defaulActive], defaulActive);
   changeCircle(defaulActive);
@@ -373,6 +435,7 @@ $(document).ready(function () {
   initValidete();
   initMask();
   toggleMenu();
+  initSwipe();
 
     _initAnalitics();
 
