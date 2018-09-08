@@ -15,7 +15,6 @@
 </template>
 
 <script>
-  require('material-design-lite');
   import { Component, Prop, Vue } from 'vue-property-decorator';
 
   @Component
@@ -23,6 +22,9 @@
     hideMenu() {
       document.getElementsByClassName('mdl-layout__drawer')[0].classList.remove('is-visible');
       document.getElementsByClassName('mdl-layout__obfuscator')[0].classList.remove('is-visible');
+    }
+    created() {
+      require('material-design-lite');
     }
   }
 </script>
