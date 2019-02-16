@@ -24,7 +24,10 @@
 
     <b-container>
       <b-row class="justify-content-md-center">
-        <b-col md="8" class="mb-4">
+        <b-col
+          md="8"
+          class="mb-4"
+        >
           <b-card header="Title">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do

@@ -7,9 +7,7 @@ const WebpackNotifierPlugin = require('webpack-notifier')
 
 const production = process.env.NODE_ENV === 'production'
 
-let postcssPlugins = [
-  require('autoprefixer')()
-]
+let postcssPlugins = [require('autoprefixer')()]
 
 if (production) {
   postcssPlugins.push(require('cssnano')())
@@ -108,7 +106,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      'sweetalert2$': 'sweetalert2/dist/sweetalert2.js',
+      sweetalert2$: 'sweetalert2/dist/sweetalert2.js',
       '@': path.join(__dirname, '../src')
     }
   },

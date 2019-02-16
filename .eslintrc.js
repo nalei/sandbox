@@ -7,12 +7,10 @@ module.exports = {
     parser: 'babel-eslint',
   },
   extends: [
-    'plugin:vue/recommended',
-    'plugin:prettier/recommended'
+    'plugin:vue/recommended'
   ],
   plugins: [
-    'vue',
-    'prettier'
+    'vue'
   ],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',

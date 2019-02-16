@@ -4,7 +4,10 @@
       {{ $t('contact.title') }}
     </h1>
 
-    <b-form class="mb-4" @submit="onSubmit">
+    <b-form
+      class="mb-4"
+      @submit="onSubmit"
+    >
       <b-form-group
         id="exampleInputGroup1"
         label="Email address:"
@@ -45,14 +48,23 @@
         />
       </b-form-group>
       <b-form-group id="exampleGroup4">
-        <b-form-checkbox id="exampleInput4" v-model="form.checked">
+        <b-form-checkbox
+          id="exampleInput4"
+          v-model="form.checked"
+        >
           Check me out
         </b-form-checkbox>
       </b-form-group>
-      <b-btn type="submit" variant="primary">
+      <b-btn
+        type="submit"
+        variant="primary"
+      >
         Submit
       </b-btn>
-      <b-btn type="reset" variant="secondary">
+      <b-btn
+        type="reset"
+        variant="secondary"
+      >
         Reset
       </b-btn>
     </b-form>

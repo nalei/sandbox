@@ -18,19 +18,38 @@
       and easier web development.
     </p>
 
-    <b-btn class="mr-1" @click="openSwal">
+    <b-btn
+      class="mr-1"
+      @click="openSwal"
+    >
       Sweet !
     </b-btn>
-    <b-btn class="mr-1" variant="success" @click="showSuccessMsg()">
+    <b-btn
+      class="mr-1"
+      variant="success"
+      @click="showSuccessMsg()"
+    >
       Noty !
     </b-btn>
-    <b-btn class="mr-1" variant="info" @click="showInfoMsg()">
+    <b-btn
+      class="mr-1"
+      variant="info"
+      @click="showInfoMsg()"
+    >
       Noty !
     </b-btn>
-    <b-btn class="mr-1" variant="warning" @click="showWarnMsg()">
+    <b-btn
+      class="mr-1"
+      variant="warning"
+      @click="showWarnMsg()"
+    >
       Noty !
     </b-btn>
-    <b-btn class="mr-1" variant="danger" @click="showErrorMsg()">
+    <b-btn
+      class="mr-1"
+      variant="danger"
+      @click="showErrorMsg()"
+    >
       Noty !
     </b-btn>
   </div>

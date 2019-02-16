@@ -7,7 +7,10 @@
             vue-ssr-boilerplate
           </h3>
           <b-nav class="nav-pills float-right">
-            <b-nav-item to="/" exact>
+            <b-nav-item
+              to="/"
+              exact
+            >
               Home
             </b-nav-item>
             <b-nav-item to="/about">
@@ -61,11 +64,15 @@
             height="480"
             src="https://picsum.photos/1024/480/?image=55"
             alt="image slot"
-          />
+          >
         </b-carousel-slide>
 
         <!-- Slide with blank fluid image to maintain slide aspect ratio -->
-        <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
+        <b-carousel-slide
+          caption="Blank Image"
+          img-blank
+          img-alt="Blank image"
+        >
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
             eros felis, tincidunt a tincidunt eget, convallis vel est. Ut
@@ -74,7 +81,10 @@
         </b-carousel-slide>
       </b-carousel>
 
-      <b-alert v-if="message" :variant="`${message.type}`">
+      <b-alert
+        v-if="message"
+        :variant="`${message.type}`"
+      >
         {{ message.body }}
       </b-alert>
       <router-view />
@@ -83,8 +93,8 @@
     <div class="footer">
       <b-container>
         <p>
-          <font-awesome-icon icon="code" /> with
-          <font-awesome-icon icon="heart" /> by mycompany.com
+          <font-awesome-icon icon="code" />with
+          <font-awesome-icon icon="heart" />by mycompany.com
         </p>
       </b-container>
     </div>
@@ -100,15 +110,15 @@ export default {
       { charset: 'utf-8' },
       {
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1, shrink-to-fit=no'
-      }
-    ]
+        content: 'width=device-width, initial-scale=1, shrink-to-fit=no',
+      },
+    ],
   },
   data() {
     return {
       slide: 0,
       sliding: null,
-      message: null
+      message: null,
     }
   },
   methods: {
@@ -117,7 +127,7 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false
-    }
-  }
+    },
+  },
 }
 </script>
