@@ -74,6 +74,30 @@ module.exports = {
         }
       },
       {
+        test: /\.pug$/,
+        oneOf: [
+          // this applies to <template lang="pug"> in Vue components
+          {
+            resourceQuery: /^\?vue/,
+            loader: 'pug-plain-loader',
+            options: {
+              doctype: 'html',
+              basedir: process.cwd()
+            }
+          },
+          // this applies to pug imports inside JavaScript
+          {
+            use: ['raw-loader', {
+              loader: 'pug-plain-loader',
+              options: {
+                doctype: 'html',
+                basedir: process.cwd()
+              }
+            }]
+          }
+        ]
+      },
+      {
         test: /\.(png|jpe?g|gif)$/,
         loaders: [
           {
