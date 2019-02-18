@@ -78,6 +78,7 @@ function render (req, res) {
     ${link.text()}
     ${context.renderResourceHints()}
     ${context.renderStyles()}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsx8NdZDGsFxr0fRq-Kr78h2fu2ecyC8Q"></script>
   </head>
   <body ${bodyAttrs.text()}>
     ${html}

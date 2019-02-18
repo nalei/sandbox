@@ -3,6 +3,7 @@
     section.mapper
       .mapper-left
         .mapper-left_wrapper
+          map-component
 
       aside.mapper-right
         .mapper-right_wrapper
@@ -51,10 +52,13 @@
 <script>
 import swal from 'sweetalert2'
 import VueNotifications from 'vue-notifications'
+import mapComponent from './Map'
 
 export default {
   name: 'Layout',
-  components: {},
+  components: {
+    mapComponent
+  },
   data() {
     return {
       slide: 0,

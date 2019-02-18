@@ -1,10 +1,6 @@
 <template lang="pug">
   #app
     header-component
-    b-alert(
-      v-if="message"
-      :variant="`${message.type}`")
-        | {{ message.body }}
     router-view
     footer-component
 </template>
@@ -27,11 +23,6 @@ export default {
   components: {
     headerComponent,
     footerComponent
-  },
-  data() {
-    return{
-      message: null
-    }
   }
 }
 </script>
