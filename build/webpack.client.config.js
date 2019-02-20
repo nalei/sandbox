@@ -9,7 +9,11 @@ module.exports = merge(baseConfig, {
     app: './src/entry-client.js'
   },
   optimization: {
-    minimizer: [new UglifyWebpackPlugin({ sourceMap: false })]
+    minimizer: [new UglifyWebpackPlugin({
+      cache: false,
+      parallel: false,
+      sourceMap: false
+    })]
   },
   plugins: [
     // new webpack.EnvironmentPlugin(['APP_LOCALE']),
