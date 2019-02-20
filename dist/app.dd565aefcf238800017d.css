@@ -12759,7 +12759,7 @@ main {
 }
 .mapper .mapper-left_wrapper {
   position: fixed;
-  right: calc(100% - calc( 100vw - 572px ));
+  right: calc(100% - (100vw - 572px));
   bottom: 0;
   left: 0;
   overflow: hidden;
@@ -12788,9 +12788,4 @@ main {
 }
 
 
-.mapper .mapper-left_wrapper {
-  right: calc(100% - calc( 100vw - 572px ));
-}
-
-
-/*# sourceMappingURL=app.596e492602962d04865a.css.map*/
+/*# sourceMappingURL=app.dd565aefcf238800017d.css.map*/
