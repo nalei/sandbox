@@ -9,7 +9,11 @@ module.exports = merge(baseConfig, {
   },
   optimization: {
     splitChunks: {
-      chunks: 'initial'
+      minSize: 100000,
+      chunks: 'initial',
+      maxAsyncRequests: Infinity,
+      maxInitialRequests: Infinity,
+      name: true
     }
   },
   plugins: [
