@@ -77,11 +77,6 @@
   border-bottom-left-radius: 0;
 }
 
-.was-validated .form-control:invalid,
-.was-validated .form-control:valid, .form-control.is-invalid, .form-control.is-valid {
-  background-position: right calc(0.375em + 0.1875rem) center;
-}
-
 input[type="color"].form-control {
   height: calc(1.5em + 0.75rem + 2px);
   padding: 0.125rem 0.25rem;
@@ -640,4 +635,4 @@ table.b-table.b-table-selectable > tbody > tr {
 }
 /*# sourceMappingURL=bootstrap-vue.css.map */
 
-/*# sourceMappingURL=vendors~app.485babd7c2c232859147.css.map*/
+/*# sourceMappingURL=vendors~app.1d8371deba5083e0b59d.css.map*/

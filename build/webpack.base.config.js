@@ -9,9 +9,9 @@ const production = process.env.NODE_ENV === 'production'
 
 let postcssPlugins = [require('autoprefixer')()]
 
-if (production) {
-  postcssPlugins.push(require('cssnano')())
-}
+// if (production) {
+//   postcssPlugins.push(require('cssnano')())
+// }
 
 let cssLoaders = [
   production ? MiniCssExtractPlugin.loader : 'vue-style-loader',

@@ -13,7 +13,7 @@ module.exports = merge(baseConfig, {
     }
   },
   plugins: [
-    new webpack.EnvironmentPlugin(['APP_LOCALE']),
+    new webpack.EnvironmentPlugin({'APP_LOCALE': 'en'}),
     new webpack.ProvidePlugin({
       $: 'jquery',
       'process.browser': true,
