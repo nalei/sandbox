@@ -7,7 +7,13 @@ module.exports = merge(baseConfig, {
   entry: {
     app: './src/entry-client.js'
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'initial'
+    }
+  },
   plugins: [
+    new webpack.EnvironmentPlugin(['APP_LOCALE']),
     new webpack.ProvidePlugin({
       $: 'jquery',
       'process.browser': true,
