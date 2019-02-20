@@ -1,0 +1,13 @@
+{
+  "apps" : {
+    "name"        : "sandbox",
+    "script"      : "./server.js",
+    "watch"       : true,
+    "env_production" : {
+       "NODE_ENV": "production"
+    },
+    "env_develpomemt" : {
+       "NODE_ENV": "development"
+    }
+  }
+}
