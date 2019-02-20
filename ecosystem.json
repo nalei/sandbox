@@ -3,11 +3,11 @@
     "name"        : "sandbox",
     "script"      : "./server.js",
     "watch"       : true,
-    "production" : {
-       "NODE_ENV": "production"
-    },
-    "develpomemt" : {
+    "env" : {
        "NODE_ENV": "development"
+    },
+    "env_production" : {
+       "NODE_ENV": "production"
     }
   }
 }
