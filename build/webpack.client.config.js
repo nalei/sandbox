@@ -9,10 +9,10 @@ module.exports = merge(baseConfig, {
     app: './src/entry-client.js'
   },
   optimization: {
-    minimizer: [new UglifyWebpackPlugin({ sourceMap: true })]
+    minimizer: [new UglifyWebpackPlugin({ sourceMap: false })]
   },
   plugins: [
-    new webpack.EnvironmentPlugin(['APP_LOCALE']),
+    // new webpack.EnvironmentPlugin(['APP_LOCALE']),
     new webpack.ProvidePlugin({
       $: 'jquery',
       'process.browser': true,
