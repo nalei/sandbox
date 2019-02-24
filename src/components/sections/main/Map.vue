@@ -2,38 +2,40 @@
   #map.map
 </template>
 
-<script>  
- let sanfrancisco = [37.782685, -122.411364];
+<script>
+let sanfrancisco = [37.782685, -122.411364];
 
- export default {
+export default {
   props: {
-    'latitude': {
+    latitude: {
       type: Number,
       default() {
         return sanfrancisco[0]
       }
     },
-    'longitude': {
+    longitude: {
       type: Number,
       default() {
         return sanfrancisco[1]
       }
     },
-    'zoom': {
+    zoom: {
       type: Number,
       default() {
         return 14
       }
-    },
+    }
   },
   mounted() {
+    // eslint-disable-next-line
     this.$map = new google.maps.Map(document.getElementById('map'), {
+      // eslint-disable-next-line
       center: new google.maps.LatLng(this.latitude, this.longitude),
       zoom: this.zoom
     });
   }
 }
-</script>  
+</script>
 
 <style>
 .map {

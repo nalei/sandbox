@@ -53,7 +53,7 @@ export default {
   data() {
     return {
       slide: 0,
-      sliding: null,
+      sliding: null
     }
   },
   methods: {
@@ -62,7 +62,7 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false
-    },
+    }
   }
 }
 </script>

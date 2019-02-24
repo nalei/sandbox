@@ -24,7 +24,7 @@ export default {
     showSuccessMsg: {
       type: VueNotifications.types.success,
       title: 'Hello there',
-      message: "That's the success!"
+      message: 'That\'s the success!'
     },
     showInfoMsg: {
       type: VueNotifications.types.info,
@@ -34,12 +34,12 @@ export default {
     showWarnMsg: {
       type: VueNotifications.types.warn,
       title: 'Wow, man',
-      message: "That's the kind of warning"
+      message: 'That\'s the kind of warning'
     },
     showErrorMsg: {
       type: VueNotifications.types.error,
       title: 'Wow-wow',
-      message: "That's the error"
+      message: 'That\'s the error'
     }
   },
   methods: {

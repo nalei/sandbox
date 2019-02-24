@@ -9,6 +9,7 @@ Vue.use(VueI18n)
 
 export function createI18n() {
   return new VueI18n({
+    // eslint-disable-next-line
     locale: process.env.APP_LOCALE || 'en',
     messages: {
       en,
