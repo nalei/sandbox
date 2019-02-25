@@ -476,7 +476,7 @@ mark,
 }
 
 .blockquote-footer::before {
-  content: "\2014\A0";
+  content: "\2014\00A0";
 }
 
 .img-fluid {
@@ -12788,4 +12788,4 @@ main {
 }
 
 
-/*# sourceMappingURL=app.dd565aefcf238800017d.css.map*/
+/*# sourceMappingURL=app.953561384b450ebb06ad.css.map*/
