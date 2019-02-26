@@ -47,14 +47,6 @@
           required
         />
       </b-form-group>
-      <b-form-group id="exampleGroup4">
-        <b-form-checkbox
-          id="exampleInput4"
-          v-model="form.checked"
-        >
-          Check me out
-        </b-form-checkbox>
-      </b-form-group>
       <b-btn
         type="submit"
         variant="primary"
