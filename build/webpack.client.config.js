@@ -2,6 +2,7 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const baseConfig = require('./webpack.base.config.js')
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
+// const MinifyPlugin = require('terser-webpack-plugin')
 
 module.exports = merge(baseConfig, {
   entry: {
@@ -10,7 +11,13 @@ module.exports = merge(baseConfig, {
   optimization: {
     splitChunks: {
       chunks: 'initial'
-    }
+    },
+    // minimizer: [
+    //   new MinifyPlugin({
+    //     cache: true,
+    //     parallel: true
+    //   }),
+    // ]
   },
   plugins: [
     new webpack.EnvironmentPlugin({'APP_LOCALE': 'en'}),

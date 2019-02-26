@@ -17,6 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.3.3",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
     "@fortawesome/free-brands-svg-icons": "^5.7.2",
@@ -29,6 +30,7 @@
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.3.1",
     "css-loader": "^2.1.0",
+    "cssnano": "^4.1.10",
     "eslint": "^5.14.1",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-vue": "^5.2.2",
@@ -48,6 +50,7 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "sweetalert2": "^7.28.4",
+    "terser-webpack-plugin": "^1.2.3",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "url-loader": "^1.1.2",
     "vue-loader": "^15.6.4",
