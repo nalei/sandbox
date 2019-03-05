@@ -11,7 +11,11 @@ let postcssPlugins = [
 ]
 
 if (production) {
-  postcssPlugins.push(require('cssnano')())
+  postcssPlugins.push(require('cssnano')({
+    preset: ['default', {
+      calc: false
+    }]
+  }))
 }
 
 let cssLoaders = [
