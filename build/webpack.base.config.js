@@ -1,35 +1,10 @@
 const path = require('path')
 
 const { VueLoaderPlugin } = require('vue-loader')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 
 const production = process.env.NODE_ENV === 'production'
-
-let postcssPlugins = [require('autoprefixer')()]
-
-if (production) {
-  postcssPlugins.push(require('cssnano')())
-}
-
-let cssLoaders = [
-  production ? MiniCssExtractPlugin.loader : 'vue-style-loader',
-  {
-    loader: 'css-loader',
-    options: {
-      sourceMap: true
-    }
-  },
-  {
-    loader: 'postcss-loader',
-    options: {
-      ident: 'postcss',
-      sourceMap: true,
-      plugins: postcssPlugins
-    }
-  }
-]
 
 module.exports = {
   output: {
@@ -39,22 +14,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.css$/,
-        use: cssLoaders
-      },
-      {
-        test: /\.scss$/,
-        use: cssLoaders.concat([
-          {
-            loader: 'sass-loader',
-            options: {
-              outputStyle: 'expanded',
-              sourceMap: true
-            }
-          }
-        ])
-      },
       {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
@@ -69,7 +28,8 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env']
+          presets: ['@babel/preset-env'],
+          plugins: ["@babel/plugin-syntax-dynamic-import"]
         }
       },
       {
@@ -120,16 +80,13 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    new MiniCssExtractPlugin({
-      filename: '[name].[chunkhash].css'
-    }),
     new FriendlyErrorsWebpackPlugin(),
     new WebpackNotifierPlugin()
   ],
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      sweetalert2$: 'sweetalert2/dist/sweetalert2.js',
+      'sweetalert2$': 'sweetalert2/dist/sweetalert2.js',
       '@': path.join(__dirname, '../src')
     }
   },

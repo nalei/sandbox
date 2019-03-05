@@ -55,7 +55,6 @@ export default {
 }
 </script>
 
-
 <style>
 /* Custom page header */
 header {

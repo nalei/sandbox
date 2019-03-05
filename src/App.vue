@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import headerComponent from './components/sections/Header'
-import footerComponent from './components/sections/Footer'
+import headerComponent from './components/sections/Header.vue'
+import footerComponent from './components/sections/Footer.vue'
 export default {
   name: 'App',
   metaInfo: {
