@@ -16,7 +16,7 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
   // add your custom rules here
-		'no-console': 1,
+		'no-console': 0,
 		'no-constant-condition': 2,
 		'no-dupe-args': 2,
 		'no-dupe-keys': 2,
@@ -56,7 +56,7 @@ module.exports = {
 		'no-labels': 2,
 		'no-lone-blocks': 2,
 		'no-loop-func': 2,
-		'no-multi-spaces': 1,
+		'no-multi-spaces': 0,
 		'no-redeclare': 2,
 		'no-return-assign': 1,
 		'no-self-assign': 1,

@@ -3,47 +3,64 @@
     section.mapper
       .mapper-left
         .mapper-left_wrapper
-          map-component
+          //- map-component
 
       aside.mapper-right
         .mapper-right_wrapper
           b-container(fluid)
 
-            p.card-text 'SECTION ALL POSTS'
-              router-link(:to="'/HREF/'") 11111
+            .text-center(v-show="loading") Loading...
+            b-form-row(v-for="post in posts" :key="post.id")
+              .media-left(v-if="(post.data.thumbnail != 'default') && (post.data.thumbnail != 'self')")
+                a(:href="post.data.url")
+                  img.media-object(:src="post.data.thumbnail")
+              .media-body
+                p.meta
+                  | Published
+                  span.meta-bit {{ post.data.created }}
+                  | at
+                  span.meta-bit {{ post.data.domain }}
+                h4
+                  a(:href="post.data.url" target="_blank") {{ post.data.title }}
+                p.stats
+                  font-awesome-icon(:icon="['far', 'thumbs-up']")
+                  span {{ post.data.score }}
+                  font-awesome-icon(:icon="['far', 'comment']")
+                  span {{ post.data.num_comments }}
 
-            b-form-row
-              .card
-                b-carousel(
-                  id="carousel1"
-                  v-model="slide"
-                  style="text-shadow: 1px 1px 2px #333;"
-                  controls
-                  indicators
-                  background="#ababab"
-                  :interval="4000"
-                  img-width="1024"
-                  img-height="480"
-                  @sliding-start="onSlideStart"
-                  @sliding-end="onSlideEnd")
+            //- b-form-row
+            //-   .card
+            //-     b-carousel(
+            //-       id="carousel1"
+            //-       v-model="slide"
+            //-       style="text-shadow: 1px 1px 2px #333;"
+            //-       controls
+            //-       indicators
+            //-       background="#ababab"
+            //-       :interval="4000"
+            //-       img-width="1024"
+            //-       img-height="480"
+            //-       @sliding-start="onSlideStart"
+            //-       @sliding-end="onSlideEnd")
 
-                  b-carousel-slide(
-                    caption="First slide"
-                    text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-                    img-src="https://picsum.photos/1024/480/?image=52")
-                  b-carousel-slide(img-src="https://picsum.photos/1024/480/?image=54")
-                    h1 Hello world!
-                  b-carousel-slide(img-src="https://picsum.photos/1024/480/?image=58")
-                  b-carousel-slide(img-src="https://picsum.photos/1024/480/?image=55")
+            //-       b-carousel-slide(
+            //-         caption="First slide"
+            //-         text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+            //-         img-src="https://picsum.photos/1024/480/?image=52")
+            //-       b-carousel-slide(img-src="https://picsum.photos/1024/480/?image=54")
+            //-         h1 Hello world!
+            //-       b-carousel-slide(img-src="https://picsum.photos/1024/480/?image=58")
+            //-       b-carousel-slide(img-src="https://picsum.photos/1024/480/?image=55")
 
-                .card-body
-                  h5.card-title Card title
-                  p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+            //-     .card-body
+            //-       h5.card-title Card title
+            //-       p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
 
 </template>
 
 <script>
 import mapComponent from './Map'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Layout',
@@ -56,7 +73,23 @@ export default {
       sliding: null
     }
   },
+  computed: {
+    ...mapGetters({
+      posts: 'posts',
+      loading: 'loading'
+    })
+  },
+  created() {
+    /**
+     * Получает топ 30 новостей Reddit, и записывает в posts
+     * subReddit == 'all'
+     */
+    this.fetchPosts('all')
+  },
   methods: {
+    ...mapActions({
+      fetchPosts: 'FETCH_POSTS'
+    }),
     onSlideStart(slide) {
       this.sliding = true
     },
