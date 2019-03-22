@@ -33,6 +33,11 @@ module.exports = merge(baseConfig, {
   output: {
     libraryTarget: 'commonjs2'
   },
+  resolve: {
+    alias: {
+      'create-api': './create-api-server.js'
+    }
+  },
   externals: nodeExternals({
     whitelist: [/\.css$/, /\?vue&type=style/]
   }),

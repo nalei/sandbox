@@ -3,30 +3,30 @@
     section.mapper
       .mapper-left
         .mapper-left_wrapper
-          //- map-component
+          map-component
 
       aside.mapper-right
         .mapper-right_wrapper
           b-container(fluid)
 
-            .text-center(v-show="loading") Loading...
+            //- .text-center(v-show="loading") Loading...
             b-form-row(v-for="post in posts" :key="post.id")
-              .media-left(v-if="(post.data.thumbnail != 'default') && (post.data.thumbnail != 'self')")
-                a(:href="post.data.url")
-                  img.media-object(:src="post.data.thumbnail")
+              .media-left(v-if="(post.thumbnail != 'default') && (post.thumbnail != 'self')")
+                a(:href="post.url")
+                  img.media-object(:src="post.thumbnail")
               .media-body
                 p.meta
                   | Published
-                  span.meta-bit {{ post.data.created }}
+                  span.meta-bit {{ post.created }}
                   | at
-                  span.meta-bit {{ post.data.domain }}
+                  span.meta-bit {{ post.domain }}
                 h4
-                  a(:href="post.data.url" target="_blank") {{ post.data.title }}
+                  a(:href="post.url" target="_blank") {{ post.title }}
                 p.stats
                   font-awesome-icon(:icon="['far', 'thumbs-up']")
-                  span {{ post.data.score }}
+                  span {{ post.score }}
                   font-awesome-icon(:icon="['far', 'comment']")
-                  span {{ post.data.num_comments }}
+                  span {{ post.num_comments }}
 
             //- b-form-row
             //-   .card

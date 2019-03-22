@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 const express = require('express')
+const favicon = require('serve-favicon')
 const LRU = require('lru-cache')
 const path = require('path')
 const resolve = (file) => path.resolve(__dirname, file)
@@ -34,7 +35,9 @@ if (production) {
   })
 }
 
+app.use(favicon('./public/logo.png'))
 app.use('/dist', serve('./dist', true))
+app.use('/public', serve('./public', true))
 
 const microCache = LRU({
   max: 100,

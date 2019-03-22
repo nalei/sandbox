@@ -17,7 +17,8 @@ export default {
       {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1, shrink-to-fit=no'
-      }
+      },
+      { rel: 'icon', type: 'image/x-icon', href: '/public/logo.png' }
     ]
   },
   components: {
