@@ -1,18 +1,22 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { fetchApi } from '../api'
+import request from 'axios'
+
+request.defaults.baseURL = 'https://www.reddit.com/'
 
 Vue.use(Vuex)
 
 export function createStore() {
   return new Vuex.Store({
     state: {
-      posts: {/* Массив новостей Reddit */}
+      posts: [/* Массив новостей Reddit */]
     },
     actions: {
       FETCH_POSTS: ({ commit }, subReddit) => {
-        const url = 'r/' + subReddit + '/top.json?limit=3&count=3'
-        fetchApi(url).then(response => commit('SET_ITEMS', response.data.children))
+        const url = 'r/all/top.json?limit=30&count=30'
+        return request.get(url).then(response => {
+          commit('SET_ITEMS', response.data.data.children)
+        })
       }
     },
     mutations: {
@@ -25,8 +29,7 @@ export function createStore() {
       }
     },
     getters: {
-      posts: state => state.posts,
-      loading: state => state.loading
+      getPosts: state => state.posts
     }
   })
 }

@@ -9,53 +9,54 @@
         .mapper-right_wrapper
           b-container(fluid)
 
-            //- .text-center(v-show="loading") Loading...
+            // b-form-row(v-for="post in posts" :key="post.id")
+            //   .media-left(v-if="(post.thumbnail != 'default') && (post.thumbnail != 'self')")
+            //     a(:href="post.url")
+            //       img.media-object(:src="post.thumbnail")
+            //   .media-body
+            //     p.meta
+            //       | Published
+            //       span.meta-bit {{ post.created }}
+            //       | at
+            //       span.meta-bit {{ post.domain }}
+            //     h4
+            //       a(:href="post.url" target="_blank") {{ post.title }}
+            //     p.stats
+            //       font-awesome-icon(:icon="['far', 'thumbs-up']")
+            //       span {{ post.score }}
+            //       font-awesome-icon(:icon="['far', 'comment']")
+            //       span {{ post.num_comments }}
+
             b-form-row(v-for="post in posts" :key="post.id")
-              .media-left(v-if="(post.thumbnail != 'default') && (post.thumbnail != 'self')")
-                a(:href="post.url")
-                  img.media-object(:src="post.thumbnail")
-              .media-body
-                p.meta
-                  | Published
-                  span.meta-bit {{ post.created }}
-                  | at
-                  span.meta-bit {{ post.domain }}
-                h4
-                  a(:href="post.url" target="_blank") {{ post.title }}
-                p.stats
-                  font-awesome-icon(:icon="['far', 'thumbs-up']")
-                  span {{ post.score }}
-                  font-awesome-icon(:icon="['far', 'comment']")
-                  span {{ post.num_comments }}
+              .card
+                .row.no-gutters
+                  .col-md-4(v-if="(post.thumbnail != 'default') && (post.thumbnail != 'self')")
+                    a(:href="post.url")
+                      img.media-object(:src="post.thumbnail")
+                      card-body
+                  // b-carousel(
+                  //   id="carousel1"
+                  //   v-model="slide"
+                  //   style="text-shadow: 1px 1px 2px #333;"
+                  //   controls
+                  //   indicators
+                  //   background="#ababab"
+                  //   :interval="0"
+                  //   img-width="1024"
+                  //   img-height="480"
+                  //   @sliding-start="onSlideStart"
+                  //   @sliding-end="onSlideEnd")
 
-            //- b-form-row
-            //-   .card
-            //-     b-carousel(
-            //-       id="carousel1"
-            //-       v-model="slide"
-            //-       style="text-shadow: 1px 1px 2px #333;"
-            //-       controls
-            //-       indicators
-            //-       background="#ababab"
-            //-       :interval="4000"
-            //-       img-width="1024"
-            //-       img-height="480"
-            //-       @sliding-start="onSlideStart"
-            //-       @sliding-end="onSlideEnd")
-
-            //-       b-carousel-slide(
-            //-         caption="First slide"
-            //-         text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-            //-         img-src="https://picsum.photos/1024/480/?image=52")
-            //-       b-carousel-slide(img-src="https://picsum.photos/1024/480/?image=54")
-            //-         h1 Hello world!
-            //-       b-carousel-slide(img-src="https://picsum.photos/1024/480/?image=58")
-            //-       b-carousel-slide(img-src="https://picsum.photos/1024/480/?image=55")
-
-            //-     .card-body
-            //-       h5.card-title Card title
-            //-       p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
-
+                  //   b-carousel-slide(:img-src="post.thumbnail")
+                  .col-md-8
+                    .card-body
+                      h5.card-title
+                        a(:href="post.url" target="_blank") {{ post.title }}
+                      p.card-text
+                        font-awesome-icon(:icon="['far', 'thumbs-up']")
+                        span {{ post.score }}
+                        font-awesome-icon(:icon="['far', 'comment']")
+                        span {{ post.num_comments }}
 </template>
 
 <script>
@@ -75,17 +76,16 @@ export default {
   },
   computed: {
     ...mapGetters({
-      posts: 'posts',
-      loading: 'loading'
+      posts: 'getPosts'
     })
   },
-  created() {
-    /**
-     * Получает топ 30 новостей Reddit, и записывает в posts
-     * subReddit == 'all'
-     */
-    this.fetchPosts('all')
-  },
+  // mounted() {
+  //   /**
+  //    * Получает топ 30 новостей Reddit, и записывает в posts
+  //    * subReddit == 'all'
+  //    */
+  //   this.fetchPosts()
+  // },
   methods: {
     ...mapActions({
       fetchPosts: 'FETCH_POSTS'
@@ -142,5 +142,19 @@ export default {
         }
       }
     }
+    .card {
+      margin-bottom: 10px;
+      &-text {
+        svg.svg-inline--fa {
+          width: 1em;
+          vertical-align: -0.125em;
+        }
+        span {
+          margin-left: 2px;
+          margin-right: 13px;
+        }
+      }
+    }
+
   }
 </style>
