@@ -3,53 +3,26 @@
     section.mapper
       .mapper-left
         .mapper-left_wrapper
-          map-component
+          // map-component
 
       aside.mapper-right
         .mapper-right_wrapper
           b-container(fluid)
 
-            // b-form-row(v-for="post in posts" :key="post.id")
-            //   .media-left(v-if="(post.thumbnail != 'default') && (post.thumbnail != 'self')")
-            //     a(:href="post.url")
-            //       img.media-object(:src="post.thumbnail")
-            //   .media-body
-            //     p.meta
-            //       | Published
-            //       span.meta-bit {{ post.created }}
-            //       | at
-            //       span.meta-bit {{ post.domain }}
-            //     h4
-            //       a(:href="post.url" target="_blank") {{ post.title }}
-            //     p.stats
-            //       font-awesome-icon(:icon="['far', 'thumbs-up']")
-            //       span {{ post.score }}
-            //       font-awesome-icon(:icon="['far', 'comment']")
-            //       span {{ post.num_comments }}
-
             b-form-row(v-for="post in posts" :key="post.id")
               .card
                 .row.no-gutters
-                  .col-md-4(v-if="(post.thumbnail != 'default') && (post.thumbnail != 'self')")
+                  .col-md-3(v-if="(post.thumbnail != 'default') && (post.thumbnail != 'self')")
                     a(:href="post.url")
                       img.media-object(:src="post.thumbnail")
-                      card-body
-                  // b-carousel(
-                  //   id="carousel1"
-                  //   v-model="slide"
-                  //   style="text-shadow: 1px 1px 2px #333;"
-                  //   controls
-                  //   indicators
-                  //   background="#ababab"
-                  //   :interval="0"
-                  //   img-width="1024"
-                  //   img-height="480"
-                  //   @sliding-start="onSlideStart"
-                  //   @sliding-end="onSlideEnd")
 
-                  //   b-carousel-slide(:img-src="post.thumbnail")
-                  .col-md-8
+                  .col-md-9
                     .card-body
+                      p.card-meta
+                        | Published
+                        span.meta-bit {{ convertTime(post.created) }}
+                        | at
+                        span.meta-bit {{ post.domain }}
                       h5.card-title
                         a(:href="post.url" target="_blank") {{ post.title }}
                       p.card-text
@@ -90,11 +63,17 @@ export default {
     ...mapActions({
       fetchPosts: 'FETCH_POSTS'
     }),
-    onSlideStart(slide) {
-      this.sliding = true
-    },
-    onSlideEnd(slide) {
-      this.sliding = false
+    convertTime(UNIXtimestamp) {
+      const a = new Date(UNIXtimestamp * 1000)
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      const year = a.getFullYear()
+      const month = months[a.getMonth()]
+      const date = a.getDate()
+      const hour = a.getHours()
+      const min = a.getMinutes()
+      const sec = a.getSeconds()
+
+      return date + '.' + month + '.' + year
     }
   }
 }
@@ -143,7 +122,16 @@ export default {
       }
     }
     .card {
+      width: 100%;
       margin-bottom: 10px;
+      &-meta {
+        font-size: .9em;
+        margin-bottom: 5px;
+        span {
+          margin-left: 4px;
+          margin-right: 4px;
+        }
+      }
       &-text {
         svg.svg-inline--fa {
           width: 1em;

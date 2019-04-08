@@ -13,7 +13,7 @@ export function createStore() {
     },
     actions: {
       FETCH_POSTS: ({ commit }, subReddit) => {
-        const url = 'r/all/top.json?limit=30&count=30'
+        const url = 'r/all/top.json?limit=20&count=20'
         return request.get(url).then(response => {
           commit('SET_ITEMS', response.data.data.children)
         })
