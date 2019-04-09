@@ -1,6 +1,6 @@
 <template lang="pug">
   #app
-    // header-component
+    header-component
     router-view
     footer-component
 </template>

@@ -3,7 +3,7 @@
     section.mapper
       .mapper-left
         .mapper-left_wrapper
-          // map-component
+          map-component
 
       aside.mapper-right
         .mapper-right_wrapper
@@ -41,37 +41,33 @@ export default {
   components: {
     mapComponent
   },
-  data() {
-    return {
-      slide: 0,
-      sliding: null
-    }
-  },
   computed: {
     ...mapGetters({
       posts: 'getPosts'
     })
   },
-  // mounted() {
-  //   /**
-  //    * Получает топ 30 новостей Reddit, и записывает в posts
-  //    * subReddit == 'all'
-  //    */
-  //   this.fetchPosts()
-  // },
+  asyncData({ store }) {
+    /**
+     * Серверный преген
+     */
+    return store.dispatch('FETCH_POSTS')
+  },
+  mounted() {
+    this.fetchPosts()
+  },
   methods: {
     ...mapActions({
       fetchPosts: 'FETCH_POSTS'
     }),
     convertTime(UNIXtimestamp) {
-      const a = new Date(UNIXtimestamp * 1000)
+      const d = new Date(UNIXtimestamp * 1000)
       const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-      const year = a.getFullYear()
-      const month = months[a.getMonth()]
-      const date = a.getDate()
-      const hour = a.getHours()
-      const min = a.getMinutes()
-      const sec = a.getSeconds()
+      const year = d.getFullYear()
+      const month = months[d.getMonth()]
+      const date = d.getDate()
+      const hour = d.getHours()
+      const min = d.getMinutes()
+      const sec = d.getSeconds()
 
       return date + '.' + month + '.' + year
     }

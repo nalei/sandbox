@@ -18,12 +18,6 @@ export default {
         content: 'Nulla quis lorem ut libero malesuada feugiat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta.'
       }
     ]
-  },
-  asyncData({ store }) {
-    /**
-     * Серверный преген
-     */
-    return store.dispatch('FETCH_POSTS')
   }
 }
 </script>

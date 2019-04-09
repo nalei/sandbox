@@ -33,10 +33,12 @@ export default context => {
       // A preFetch hook dispatches a store action and returns a Promise,
       // which is resolved when the action is complete and store state has been
       // updated.
-      Promise.all(matchedComponents.map(({ asyncData }) => asyncData && asyncData({
-        store,
-        route: router.currentRoute
-      }))).then(() => {
+      Promise.all(matchedComponents.map(component => {
+        for (const comp in component.components) {
+          if (component.components[comp].asyncData) return component.components[comp].asyncData({ store, route: router.currentRoute })
+        }
+        if (component.asyncData) return component.asyncData({ store, route: router.currentRoute })
+      })).then(() => {
         // eslint-disable-next-line
         isDev && console.log(`data pre-fetch: ${Date.now() - s}ms`)
         // After all preFetch hooks are resolved, our store is now
@@ -46,7 +48,6 @@ export default context => {
         // store to pick-up the server-side state without having to duplicate
         // the initial data fetching on the client.
         context.state = store.state
-        // console.log(store.state)
         resolve(app)
       }).catch(reject)
     }, reject)

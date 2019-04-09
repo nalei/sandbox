@@ -12,7 +12,11 @@ export function createStore() {
       posts: [/* Массив новостей Reddit */]
     },
     actions: {
-      FETCH_POSTS: ({ commit }, subReddit) => {
+      /**
+       * Получает топ 30 новостей Reddit, и записывает в posts
+       * @return {Promise} - set items to posts
+       */
+      FETCH_POSTS: ({ commit }) => {
         const url = 'r/all/top.json?limit=20&count=20'
         return request.get(url).then(response => {
           commit('SET_ITEMS', response.data.data.children)
