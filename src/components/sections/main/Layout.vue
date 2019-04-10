@@ -65,10 +65,9 @@ export default {
       const year = d.getFullYear()
       const month = months[d.getMonth()]
       const date = d.getDate()
-      const hour = d.getHours()
-      const min = d.getMinutes()
-      const sec = d.getSeconds()
-
+      // const hour = d.getHours()
+      // const min = d.getMinutes()
+      // const sec = d.getSeconds()
       return date + '.' + month + '.' + year
     }
   }

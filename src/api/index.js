@@ -1,14 +1,19 @@
 // this is aliased in webpack config based on server/client build
-import { createAPI } from 'create-api'
+import { api } from 'create-api'
+import request from 'axios'
 
-const api = createAPI({
-  config: {
-    baseURL: 'https://www.reddit.com/'
+request.defaults.baseURL = 'https://www.reddit.com/'
+
+export function fetchPosts(req) {
+  const cacheKey = req
+
+  const cache = api.cachedItems
+  if (cache && cache.has(cacheKey)) {
+    return Promise.resolve(cache.get(cacheKey))
   }
-})
 
-export function fetchApi(request) {
-  return api.get(request).then(response => {
-    return response.data
+  return request.get(req).then(response => {
+    cache && cache.set(cacheKey, response)
+    return response
   })
 }

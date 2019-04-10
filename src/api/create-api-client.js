@@ -1,5 +1,3 @@
-import axios from 'axios'
+const api = {}
 
-export function createAPI({ config }) {
-  return axios.create(config)
-}
+export { api }

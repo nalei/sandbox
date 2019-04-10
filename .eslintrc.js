@@ -62,7 +62,7 @@ module.exports = {
 		'no-self-assign': 1,
 		'no-self-compare': 1,
 		'no-throw-literal': 2,
-		'no-unused-expressions': 1,
+		'no-unused-expressions': 0,
 		'no-useless-call': 2,
 		'no-useless-concat': 1,
 		'no-useless-escape': 2,

@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import request from 'axios'
-
-request.defaults.baseURL = 'https://www.reddit.com/'
+import { fetchPosts } from '../api'
 
 Vue.use(Vuex)
 
@@ -18,7 +16,7 @@ export function createStore() {
        */
       FETCH_POSTS: ({ commit }) => {
         const url = 'r/all/top.json?limit=20&count=20'
-        return request.get(url).then(response => {
+        return fetchPosts(url).then(response => {
           commit('SET_ITEMS', response.data.data.children)
         })
       }
