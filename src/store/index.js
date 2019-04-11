@@ -7,7 +7,8 @@ Vue.use(Vuex)
 export function createStore() {
   return new Vuex.Store({
     state: {
-      posts: [/* Массив новостей Reddit */]
+      posts: [/* Массив новостей Reddit */],
+      postsLoading: true
     },
     actions: {
       /**
@@ -16,9 +17,7 @@ export function createStore() {
        */
       FETCH_POSTS: ({ commit }) => {
         const url = 'r/all/top.json?limit=20&count=20'
-        return fetchPosts(url).then(response => {
-          commit('SET_ITEMS', response.data.data.children)
-        })
+        return fetchPosts(url).then(response => commit('SET_ITEMS', response.data.data.children))
       }
     },
     mutations: {
@@ -28,10 +27,12 @@ export function createStore() {
             Vue.set(state.posts, i, item.data)
           }
         })
+        state.postsLoading = false
       }
     },
     getters: {
-      getPosts: state => state.posts
+      getPosts: state => state.posts,
+      loading: state => state.postsLoading
     }
   })
 }

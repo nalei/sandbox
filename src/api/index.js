@@ -4,15 +4,15 @@ import request from 'axios'
 
 request.defaults.baseURL = 'https://www.reddit.com/'
 
-export function fetchPosts(req) {
-  const cacheKey = req
-
+export function fetchPosts(url) {
+  const cacheKey = url
   const cache = api.cachedItems
+
   if (cache && cache.has(cacheKey)) {
     return Promise.resolve(cache.get(cacheKey))
   }
 
-  return request.get(req).then(response => {
+  return request.get(url).then(response => {
     cache && cache.set(cacheKey, response)
     return response
   })

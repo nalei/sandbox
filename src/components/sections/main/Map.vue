@@ -3,7 +3,8 @@
 </template>
 
 <script>
-let sanfrancisco = [37.782685, -122.411364];
+/* eslint-disable */
+let sanfrancisco = [37.782685, -122.411364]
 
 export default {
   props: {
@@ -27,12 +28,14 @@ export default {
     }
   },
   mounted() {
-    // eslint-disable-next-line
     this.$map = new google.maps.Map(document.getElementById('map'), {
-      // eslint-disable-next-line
       center: new google.maps.LatLng(this.latitude, this.longitude),
       zoom: this.zoom
-    });
+    })
+    this.$marker = new google.maps.Marker({
+      position: {lat: this.latitude, lng: this.longitude},
+      map: this.$map
+    })
   }
 }
 </script>

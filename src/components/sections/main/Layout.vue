@@ -7,43 +7,30 @@
 
       aside.mapper-right
         .mapper-right_wrapper
-          b-container(fluid)
+          b-container.posts(fluid)
+
+            b-form-row.posts_loading(v-if="loading") Loading...
 
             b-form-row(v-for="post in posts" :key="post.id")
-              .card
-                .row.no-gutters
-                  .col-md-3(v-if="(post.thumbnail != 'default') && (post.thumbnail != 'self')")
-                    a(:href="post.url")
-                      img.media-object(:src="post.thumbnail")
+              post-component(:post="post")
 
-                  .col-md-9
-                    .card-body
-                      p.card-meta
-                        | Published
-                        span.meta-bit {{ convertTime(post.created) }}
-                        | at
-                        span.meta-bit {{ post.domain }}
-                      h5.card-title
-                        a(:href="post.url" target="_blank") {{ post.title }}
-                      p.card-text
-                        font-awesome-icon(:icon="['far', 'thumbs-up']")
-                        span {{ post.score }}
-                        font-awesome-icon(:icon="['far', 'comment']")
-                        span {{ post.num_comments }}
 </template>
 
 <script>
 import mapComponent from './Map'
+import postComponent from './Post'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Layout',
   components: {
-    mapComponent
+    mapComponent,
+    postComponent
   },
   computed: {
     ...mapGetters({
-      posts: 'getPosts'
+      posts: 'getPosts',
+      loading: 'loading'
     })
   },
   asyncData({ store }) {
@@ -58,18 +45,7 @@ export default {
   methods: {
     ...mapActions({
       fetchPosts: 'FETCH_POSTS'
-    }),
-    convertTime(UNIXtimestamp) {
-      const d = new Date(UNIXtimestamp * 1000)
-      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-      const year = d.getFullYear()
-      const month = months[d.getMonth()]
-      const date = d.getDate()
-      // const hour = d.getHours()
-      // const min = d.getMinutes()
-      // const sec = d.getSeconds()
-      return date + '.' + month + '.' + year
-    }
+    })
   }
 }
 </script>
@@ -116,28 +92,10 @@ export default {
         }
       }
     }
-    .card {
-      width: 100%;
-      margin-bottom: 10px;
-      &-meta {
-        font-size: .9em;
-        margin-bottom: 5px;
-        span {
-          margin-left: 4px;
-          margin-right: 4px;
-        }
-      }
-      &-text {
-        svg.svg-inline--fa {
-          width: 1em;
-          vertical-align: -0.125em;
-        }
-        span {
-          margin-left: 2px;
-          margin-right: 13px;
-        }
+    .posts {
+      &_loading {
+        justify-content: center;
       }
     }
-
   }
 </style>
